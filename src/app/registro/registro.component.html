@@ -1,0 +1,63 @@
+<div>
+    <div class="col-md-10 mx-auto">
+        <div>
+            <h1 class="text-center mt-5 mb-5">Registro de usuarios</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h5 class="mt-3">Id</h5>
+                <input class="form-control" [(ngModel)]="id" type="text">
+            </div>
+            <div class="col-md-4">
+                <h5 class="mt-3">Nombre</h5>
+                <input class="form-control" [(ngModel)]="nombre" type="text">
+            </div>
+            <div class="col-md-4">
+                <h5 class="mt-3">Apellido</h5>
+                <input class="form-control" [(ngModel)]="apellido" type="text">
+            </div>
+            <div class="col-md-4">
+                <h5 class="mt-3">Teléfono</h5>
+                <input class="form-control" [(ngModel)]="telefono" type="text">
+            </div>
+            <div class="col-md-4">
+                <h5 class="mt-3">E-mail</h5>
+                <input class="form-control" [(ngModel)]="mail" type="text">
+            </div>
+            <div class="col-md-4">
+                <h5 class="mt-3">Dirección</h5>   
+                <input class="form-control" [(ngModel)]="direccion" type="text">
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-primary mt-5" (click)="agregarModificar()">{{id == "" ? "REGISTRARSE" : "MODIFICAR"}}</button>
+            <p>Lenar el campo Id solo si se desea modificar la informacion</p>
+        </div>
+    </div>
+    <div class="col-md-10 mx-auto mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of usuarios">
+                    <th>{{usuario.id}}</th>
+                    <td>{{usuario.nombre}}</td>
+                    <td>{{usuario.apellido}}</td>
+                    <td>{{usuario.telefono}}</td>
+                    <td>{{usuario.direccion}}</td>
+                    <td>{{usuario.mail}}</td>
+                    <td><i class="fas fa-times mx-auto text-danger" (click)="eliminar(usuario.id)"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
